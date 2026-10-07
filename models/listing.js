@@ -30,7 +30,17 @@ const listingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    // geometry field if needed...
+    geometry: {
+        type: {
+            type: String, 
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    }
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
@@ -41,16 +51,3 @@ listingSchema.post("findOneAndDelete", async (listing) => {
 
 const Listing = mongoose.model("Listing", listingSchema);
 module.exports = Listing;
-
-
-// geometry: {
-//     type: {
-//         type: String, // Don't do `{ location: { type: String } }`
-//         enum: ['Point'], // 'location.type' must be 'Point'
-//         required: true
-//     },
-//     coordinates: {
-//         type: [Number],
-//         required: true
-//     }
-// }

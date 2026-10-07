@@ -47,7 +47,8 @@
           </form>
         </div>
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link" href="#" onclick="event.preventDefault();" style="cursor: default;">Airbnb your home</a>
+          <a class="nav-link" href="/listings/new"><b>Become a Host</b></a>
           <% if (currUser) { %>
             <a class="nav-link" href="/logout"><b>Log Out</b></a>
           <% } else { %>
